@@ -1,6 +1,34 @@
-import { trendMovies } from 'service/moviesAPI';
+import { trendMovies } from 'api/moviesAPI';
+import { useEffect, useState } from 'react';
+import * as api from 'api/moviesAPI';
+import { Grid } from './Grid/Grid';
+import { AppLoader } from './Loader/Loader';
 
 export const App = () => {
-  trendMovies();
-  return <div>React homework template</div>;
+  const [trendCountries, setTrendCountries] = useState([]);
+  const [error, setError] = useState(null);
+  const [loader, setLoader] = useState(false);
+
+  useEffect(() => {
+    setLoader(true);
+    const getTrend = async () => {
+      try {
+        const { results } = await api.trendMovies();
+        setTrendCountries([...results]);
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setLoader(false);
+      }
+    };
+    getTrend();
+  }, []);
+
+  return (
+    <div>
+      {/* {loader && <AppLoader />} */}
+      <AppLoader />
+      <Grid trendCountries={trendCountries} />
+    </div>
+  );
 };

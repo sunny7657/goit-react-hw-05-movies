@@ -7,7 +7,7 @@ const instance = axios.create({
   params: { api_key: apiKey },
 });
 
-export const trendMovies = instance
-  .get('/trending')
-  .then(resp => console.log(resp))
-  .catch(err => console.log(err));
+export const trendMovies = async () => {
+  const { data } = await instance.get('/trending/movie/day');
+  return data;
+};
