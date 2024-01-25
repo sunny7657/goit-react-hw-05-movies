@@ -1,8 +1,7 @@
-import { trendMovies } from 'api/moviesAPI';
 import { useEffect, useState } from 'react';
 import * as api from 'api/moviesAPI';
-import { Grid } from './Grid/Grid';
-import { AppLoader } from './Loader/Loader';
+import { Grid } from '../Grid/Grid';
+import { AppLoader } from '../Loader/Loader';
 
 export const App = () => {
   const [trendCountries, setTrendCountries] = useState([]);
@@ -26,8 +25,8 @@ export const App = () => {
 
   return (
     <div>
-      {/* {loader && <AppLoader />} */}
-      <AppLoader />
+      {loader && <AppLoader />}
+      <header></header>
       <Grid trendCountries={trendCountries} />
     </div>
   );
