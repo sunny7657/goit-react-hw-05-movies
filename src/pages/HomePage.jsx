@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import * as api from 'api/moviesAPI';
-import { Grid } from '../Grid/Grid';
-import { AppLoader } from '../Loader/Loader';
+import { Grid } from '../components/Grid/Grid';
+import { AppLoader } from '../components/Loader/Loader';
 import { Container, Section } from 'components/App/App.styled';
 
-export const Home = () => {
+export const HomePage = () => {
   const [trendCountries, setTrendCountries] = useState([]);
   const [error, setError] = useState(null);
   const [loader, setLoader] = useState(false);

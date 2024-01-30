@@ -60,7 +60,7 @@ a {
   padding-bottom: 15px;
 }
 
-.HeaderNav {
+.menu-list {
   display: flex;
   flex-direction: row;
   gap: 20px;
