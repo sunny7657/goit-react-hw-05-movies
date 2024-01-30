@@ -11,3 +11,8 @@ export const trendMovies = async () => {
   const { data } = await instance.get('/trending/movie/day');
   return data;
 };
+
+export const findMovies = async () => {
+  const { data } = await instance.get(`/search/movie?query=${query}`);
+  return data;
+};
