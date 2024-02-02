@@ -1,5 +1,6 @@
-import { BtnStyled } from 'components/App/Button/Button.styled';
+import { BtnStyled } from 'components/Button/Button.styled';
 import { useState } from 'react';
+import * as api from 'api/moviesAPI';
 
 export const MoviesPage = () => {
   const [value, setValue] = useState('');

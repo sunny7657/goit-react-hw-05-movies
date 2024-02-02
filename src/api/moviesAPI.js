@@ -13,6 +13,6 @@ export const trendMovies = async () => {
 };
 
 export const findMovies = async () => {
-  const { data } = await instance.get(`/search/movie?query=${query}`);
+  const { data } = await instance.get(`/search/movie?query=batman`);
   return data;
 };
