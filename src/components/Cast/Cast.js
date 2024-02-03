@@ -2,8 +2,7 @@ import { MovieDetailsContainer } from 'components/MovieDetails/MovieDetailsConta
 import { InfoStyled } from 'components/MovieDetails/MovieInfo.styled';
 
 export const Cast = ({ data }) => {
-  const defaultImg =
-    'https://www.freepik.com/free-vector/illustration-businessman_2606517.htm#query=default%20user&position=1&from_view=keyword&track=ais&uuid=cfaadd70-22ba-4573-a8e7-5413f66de93e';
+  const defaultImg = 'https://i.stack.imgur.com/l60Hf.png';
 
   return data.map(({ profile_path, name, character }) => (
     <MovieDetailsContainer>
