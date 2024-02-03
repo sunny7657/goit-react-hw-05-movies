@@ -2,7 +2,7 @@ import { getMovieInfo } from 'api/moviesAPI';
 import { AppLoader } from 'components/Loader/Loader';
 import { MovieDetails } from 'components/MovieDetails/MovieDetails';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Outlet, useParams } from 'react-router-dom';
 
 export const MovieDetailsPage = () => {
   const [loader, setLoader] = useState(false);
@@ -25,9 +25,12 @@ export const MovieDetailsPage = () => {
   }, [movieId]);
 
   return (
-    <>
-      {loader && <AppLoader />}
-      <MovieDetails data={dataMovie} />
-    </>
+    dataMovie && (
+      <>
+        {loader && <AppLoader />}
+        <MovieDetails data={dataMovie} />
+        <Outlet />
+      </>
+    )
   );
 };

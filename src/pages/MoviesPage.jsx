@@ -1,6 +1,7 @@
 import { BtnStyled } from 'components/Button/Button.styled';
 import { useState } from 'react';
 import * as api from 'api/moviesAPI';
+import { Outlet } from 'react-router-dom';
 
 export const MoviesPage = () => {
   const [value, setValue] = useState('');

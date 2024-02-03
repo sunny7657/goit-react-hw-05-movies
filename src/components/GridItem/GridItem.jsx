@@ -1,10 +1,10 @@
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { StyledGridItem } from './GridItem.styled';
 
 export const GridItem = ({ title, id }) => {
   return (
     <StyledGridItem>
-      <NavLink to="/movies/:id">{title}</NavLink>
+      <Link to={`/movies/${id}`}>{title}</Link>
     </StyledGridItem>
   );
 };
