@@ -1,9 +1,9 @@
-import { Cast } from 'components/Cast/Cast';
 import { Header } from 'components/Header/Header';
-import { Reviews } from 'components/Reviews/Reviews';
+import { CastPage } from 'pages/CastPage';
 import { HomePage } from 'pages/HomePage';
 import { MovieDetailsPage } from 'pages/MovieDetailsPage';
 import { MoviesPage } from 'pages/MoviesPage';
+import { ReviewsPage } from 'pages/ReviewsPage';
 import { Navigate, Route, Routes } from 'react-router-dom';
 
 export const App = () => {
@@ -13,8 +13,8 @@ export const App = () => {
         <Route index element={<HomePage />} />
         <Route path="movies" element={<MoviesPage />} />
         <Route path="movies/:movieId" element={<MovieDetailsPage />}>
-          <Route path="cast" element={<Cast />} />
-          <Route path="reviews" element={<Reviews />} />
+          <Route path="cast" element={<CastPage />} />
+          <Route path="reviews" element={<ReviewsPage />} />
         </Route>
       </Route>
       <Route path="*" element={<Navigate to="/" />} />
