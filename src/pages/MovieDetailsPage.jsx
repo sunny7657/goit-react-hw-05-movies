@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 
 export const MovieDetailsPage = () => {
   const [loader, setLoader] = useState(false);
-  const [dataFilm, setDataFilm] = useState([]);
+  const [dataMovie, setDataMovie] = useState([]);
   const { movieId } = useParams();
 
   useEffect(() => {
@@ -14,21 +14,20 @@ export const MovieDetailsPage = () => {
     const getInfo = async () => {
       try {
         const data = await getMovieInfo(movieId);
-        console.log(data);
-        setDataFilm(data);
+        setDataMovie(data);
       } catch (error) {
         console.log(error);
       } finally {
         setLoader(false);
       }
     };
-    getInfo();
+    movieId && getInfo();
   }, [movieId]);
 
   return (
     <>
       {loader && <AppLoader />}
-      <MovieDetails data={dataFilm} />
+      <MovieDetails data={dataMovie} />
     </>
   );
 };
