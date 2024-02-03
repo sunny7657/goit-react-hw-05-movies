@@ -1,6 +1,10 @@
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { StyledGridItem } from './GridItem.styled';
 
 export const GridItem = ({ title, id }) => {
-  const params = useParams();
-  return <NavLink to="/movies/:id">{title}</NavLink>;
+  return (
+    <StyledGridItem>
+      <NavLink to="/movies/:id">{title}</NavLink>
+    </StyledGridItem>
+  );
 };

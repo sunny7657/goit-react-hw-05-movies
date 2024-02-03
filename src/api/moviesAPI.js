@@ -16,3 +16,8 @@ export const findMovies = async () => {
   const { data } = await instance.get(`/search/movie?query=batman`);
   return data;
 };
+
+export const getMovieInfo = async movieId => {
+  const { data } = await instance.get(`/movie/${movieId}`);
+  return data;
+};
