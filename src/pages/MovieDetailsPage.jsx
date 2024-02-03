@@ -41,6 +41,7 @@ export const MovieDetailsPage = () => {
             </Link>
           </ul>
         </div>
+        <Outlet />
       </>
     )
   );

@@ -1,5 +1,5 @@
 import { MovieDetailsContainer } from './MovieDetailsContainer.styled';
-import { MovieInfo } from './MovieInfo.styled';
+import { InfoStyled } from './MovieInfo.styled';
 
 export const MovieDetails = ({ data }) => {
   const { title, poster_path, vote_average, overview, genres } = data;
@@ -17,14 +17,14 @@ export const MovieDetails = ({ data }) => {
         width={250}
         alt="poster"
       />
-      <MovieInfo>
+      <InfoStyled>
         <h2>{title}</h2>
         <p>User Score: {Math.round(vote_average * 10)}% </p>
         <h3>Overview</h3>
         <p>{overview}</p>
         <h3>Genres</h3>
         {/* <p>{genres.map(genre => genre.name).join(' ')}</p> */}
-      </MovieInfo>
+      </InfoStyled>
     </MovieDetailsContainer>
   );
 };
