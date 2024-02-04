@@ -1,3 +1,5 @@
+import { Reviews } from 'components/Reviews/Reviews';
+
 export const ReviewsPage = () => {
-  return <div>ReviewsPage</div>;
+  return <Reviews />;
 };
