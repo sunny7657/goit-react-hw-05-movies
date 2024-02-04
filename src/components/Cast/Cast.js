@@ -2,10 +2,10 @@ import { MovieDetailsContainer } from 'components/MovieDetails/MovieDetailsConta
 import { InfoStyled } from 'components/MovieDetails/MovieInfo.styled';
 
 export const Cast = ({ data }) => {
-  const defaultImg = 'https://i.stack.imgur.com/l60Hf.png';
+  const defaultImg = 'https://i.stack.imgur.com/34AD2.jpg';
 
-  return data.map(({ profile_path, name, character }) => (
-    <MovieDetailsContainer>
+  return data.map(({ profile_path, name, character, id }) => (
+    <MovieDetailsContainer key={id}>
       <img
         src={
           profile_path
