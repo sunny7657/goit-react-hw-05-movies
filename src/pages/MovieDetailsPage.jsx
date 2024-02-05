@@ -30,6 +30,7 @@ export const MovieDetailsPage = () => {
     dataMovie && (
       <>
         {loader && <AppLoader />}
+        {error && <p>Ooops {error}</p>}
         <MovieDetails data={dataMovie} />
         <AdditionalInfo />
         <Outlet />

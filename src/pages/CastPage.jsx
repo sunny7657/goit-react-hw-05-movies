@@ -29,6 +29,7 @@ export const CastPage = () => {
   return (
     <>
       {loader && <AppLoader />}
+      {error && <p>Ooops {error}</p>}
       {castData && <Cast data={castData} />}
     </>
   );

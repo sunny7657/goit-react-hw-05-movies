@@ -29,6 +29,7 @@ export const HomePage = () => {
       <Section>
         <Container>
           {loader && <AppLoader />}
+          {error && <p>Ooops {error}</p>}
           <h2>Trending today</h2>
           <Grid trendCountries={trendCountries} />
         </Container>
