@@ -1,4 +1,4 @@
-import { MovieDetailsContainer } from './MovieDetailsContainer.styled';
+import { Container } from 'components/Container/Container.styled';
 import { InfoStyled } from './MovieInfo.styled';
 
 export const MovieDetails = ({ data }) => {
@@ -10,7 +10,7 @@ export const MovieDetails = ({ data }) => {
     '<https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700>';
 
   return (
-    <MovieDetailsContainer>
+    <Container>
       <img
         src={
           poster_path
@@ -30,6 +30,6 @@ export const MovieDetails = ({ data }) => {
         <h3>Genres</h3>
         <p>{genres.map(genre => genre.name).join(' ')}</p>
       </InfoStyled>
-    </MovieDetailsContainer>
+    </Container>
   );
 };

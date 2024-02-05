@@ -1,4 +1,4 @@
-import { MovieDetailsContainer } from 'components/MovieDetails/MovieDetailsContainer.styled';
+import { Container } from 'components/Container/Container.styled';
 import { InfoStyled } from 'components/MovieDetails/MovieInfo.styled';
 import { nanoid } from 'nanoid';
 
@@ -6,7 +6,7 @@ export const Cast = ({ data }) => {
   const defaultImg = 'https://i.stack.imgur.com/34AD2.jpg';
 
   return data.map(({ profile_path, name, character }) => (
-    <MovieDetailsContainer key={nanoid()}>
+    <Container key={nanoid()}>
       <img
         src={
           profile_path
@@ -20,6 +20,6 @@ export const Cast = ({ data }) => {
         <p>{name}</p>
         <p>Character: {character}</p>
       </InfoStyled>
-    </MovieDetailsContainer>
+    </Container>
   ));
 };

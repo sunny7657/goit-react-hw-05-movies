@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Grid } from '../components/Grid/Grid';
 import { AppLoader } from '../components/Loader/Loader';
-import { Container, Section } from 'components/App/App.styled';
+import { ContainerApp, Section } from 'components/App/App.styled';
 import { trendMovies } from 'api/moviesAPI';
+import { Container } from 'components/Container/Container.styled';
 
 export const HomePage = () => {
   const [trendCountries, setTrendCountries] = useState([]);
@@ -27,12 +28,14 @@ export const HomePage = () => {
   return (
     <>
       <Section>
-        <Container>
+        <ContainerApp>
           {loader && <AppLoader />}
           {error && <p>Ooops {error}</p>}
           <h2>Trending today</h2>
-          <Grid trendCountries={trendCountries} />
-        </Container>
+          <Container>
+            <Grid trendCountries={trendCountries} />
+          </Container>
+        </ContainerApp>
       </Section>
     </>
   );
