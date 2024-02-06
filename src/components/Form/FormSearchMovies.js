@@ -1,5 +1,5 @@
 import { BtnStyled } from 'components/Button/Button.styled';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 export const FormSearchMovies = () => {
@@ -13,6 +13,7 @@ export const FormSearchMovies = () => {
 
   const handleFormSubmit = e => {
     e.preventDefault();
+    console.log(searchParams);
     setSearchParams({ query: searchQuery });
     setSearchQuery('');
   };

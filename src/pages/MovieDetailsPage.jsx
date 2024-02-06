@@ -4,13 +4,7 @@ import { BtnStyled } from 'components/Button/Button.styled';
 import { AppLoader } from 'components/Loader/Loader';
 import { MovieDetails } from 'components/MovieDetails/MovieDetails';
 import { useEffect, useState } from 'react';
-import {
-  Link,
-  Outlet,
-  useLocation,
-  useNavigate,
-  useParams,
-} from 'react-router-dom';
+import { Outlet, useLocation, useNavigate, useParams } from 'react-router-dom';
 
 export const MovieDetailsPage = () => {
   const [dataMovie, setDataMovie] = useState(null);

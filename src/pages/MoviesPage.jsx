@@ -3,7 +3,7 @@ import { FormSearchMovies } from 'components/Form/FormSearchMovies';
 import { Grid } from 'components/Grid/Grid';
 import { AppLoader } from 'components/Loader/Loader';
 import { useCallback, useEffect, useState } from 'react';
-import { useLocation, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 
 export const MoviesPage = () => {
   const [loader, setLoader] = useState(false);
