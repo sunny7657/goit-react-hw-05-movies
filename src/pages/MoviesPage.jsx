@@ -1,31 +1,41 @@
-import { BtnStyled } from 'components/Button/Button.styled';
-import { useState } from 'react';
+import { searchMovies } from 'api/moviesAPI';
+import { FormSearchMovies } from 'components/Form/FormSearchMovies';
+import { Grid } from 'components/Grid/Grid';
+import { AppLoader } from 'components/Loader/Loader';
+import { useCallback, useEffect, useState } from 'react';
+import { useLocation, useSearchParams } from 'react-router-dom';
 
 export const MoviesPage = () => {
-  const [value, setValue] = useState('');
+  const [loader, setLoader] = useState(false);
+  const [error, setError] = useState(null);
+  const [queryData, setQueryData] = useState(null);
 
-  const handleInputChange = e => {
-    const {
-      target: { value },
-    } = e;
-    setValue(value);
-  };
+  const [searchParams] = useSearchParams();
 
-  const handleFormSubmit = e => {
-    e.preventDefault();
-  };
+  const getFilms = useCallback(async query => {
+    try {
+      setLoader(true);
+      const { results } = await searchMovies(query);
+
+      setQueryData(results);
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setLoader(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    const query = searchParams.get('query');
+    query && getFilms(query);
+  }, [getFilms, searchParams]);
 
   return (
-    <form onSubmit={handleFormSubmit}>
-      <input
-        type="text"
-        required
-        placeholder="Search film"
-        value={value}
-        onChange={handleInputChange}
-      />
-
-      <BtnStyled type="submit">Search</BtnStyled>
-    </form>
+    <>
+      {loader && <AppLoader />}
+      {error && <p>{error}</p>}
+      <FormSearchMovies />
+      {queryData && <Grid data={queryData} />}
+    </>
   );
 };

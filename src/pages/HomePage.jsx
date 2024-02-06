@@ -3,7 +3,6 @@ import { Grid } from '../components/Grid/Grid';
 import { AppLoader } from '../components/Loader/Loader';
 import { ContainerApp, Section } from 'components/App/App.styled';
 import { trendMovies } from 'api/moviesAPI';
-import { Container } from 'components/Container/Container.styled';
 
 export const HomePage = () => {
   const [trendCountries, setTrendCountries] = useState([]);
@@ -32,9 +31,7 @@ export const HomePage = () => {
           {loader && <AppLoader />}
           {error && <p>Ooops {error}</p>}
           <h2>Trending today</h2>
-          <Container>
-            <Grid trendCountries={trendCountries} />
-          </Container>
+          <Grid data={trendCountries} />
         </ContainerApp>
       </Section>
     </>

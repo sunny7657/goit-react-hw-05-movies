@@ -1,10 +1,10 @@
 import { GridItem } from 'components/GridItem/GridItem';
 
-export const Grid = ({ trendCountries }) => {
+export const Grid = ({ data }) => {
   return (
     <ul className="TrendFilmsGallery">
-      {trendCountries.map(({ original_title, id }) => (
-        <GridItem title={original_title} key={id} id={id} />
+      {data.map(({ title, id }) => (
+        <GridItem title={title} key={id} id={id} />
       ))}
     </ul>
   );

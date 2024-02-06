@@ -12,8 +12,8 @@ export const trendMovies = async () => {
   return data;
 };
 
-export const findMovies = async () => {
-  const { data } = await instance.get(`/search/movie?query=batman`);
+export const searchMovies = async query => {
+  const { data } = await instance.get(`/search/movie?query=${query}`);
   return data;
 };
 
@@ -24,5 +24,10 @@ export const getMovieInfo = async movieId => {
 
 export const getCast = async movieId => {
   const { data } = await instance.get(`/movie/${movieId}/credits`);
+  return data;
+};
+
+export const getReviews = async movieId => {
+  const { data } = await instance.get(`/movie/${movieId}/reviews`);
   return data;
 };
