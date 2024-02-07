@@ -36,8 +36,6 @@ export const MoviesPage = () => {
     query && getFilms(query);
   }, [getFilms, searchParams]);
 
-  console.log('isEmpty :>> ', isEmpty);
-
   return (
     <>
       {loader && <AppLoader />}
