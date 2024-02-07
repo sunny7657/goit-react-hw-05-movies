@@ -1,4 +1,4 @@
-import { BtnStyled } from 'components/Button/Button.styled';
+import { Button, Input } from '@mui/joy';
 import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
@@ -18,22 +18,23 @@ export const FormSearchMovies = () => {
     setSearchQuery('');
   };
 
-  // useEffect(() => {
-  //   const query = searchParams.get('query');
-
-  //   query && setSearchQuery(query);
-  // }, [searchParams, searchQuery]);
-
   return (
-    <form onSubmit={handleFormSubmit}>
-      <input
+    <form
+      onSubmit={handleFormSubmit}
+      style={{ width: '50%', minWidth: '250px' }}
+    >
+      <Input
         name="search"
         type="text"
         placeholder="Search film"
         value={searchQuery}
         onChange={handleInputChange}
+        endDecorator={
+          <Button variant={'soft'} size="sm" type="submit">
+            Search
+          </Button>
+        }
       />
-      <BtnStyled type="submit">Search</BtnStyled>
     </form>
   );
 };

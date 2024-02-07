@@ -1,21 +1,32 @@
+import { Box, List, ListItem, ListItemButton, ListDivider } from '@mui/joy';
 import { NavLink, Outlet } from 'react-router-dom';
+import { Home, Videocam } from '@mui/icons-material';
 
 export const Header = () => {
   return (
     <>
-      <header className="Header">
-        <nav className="HeaderNav">
-          <ul className="menu-list">
-            <li className="menu-item">
-              <NavLink to="/">Home</NavLink>
-            </li>
-            <li className="menu-item">
+      <Box component="nav" aria-label="My site" sx={{ flexGrow: 1 }}>
+        <List role="menubar" orientation="horizontal">
+          <ListItem role="none">
+            <NavLink to="/">
+              <ListItemButton>
+                <Home />
+                Home
+              </ListItemButton>
+            </NavLink>
+          </ListItem>
+          <ListDivider />
+          <ListItem role="none">
+            <ListItemButton>
+              <Videocam />
               <NavLink to="/movies">Movies</NavLink>
-            </li>
-          </ul>
-        </nav>
-      </header>
+            </ListItemButton>
+          </ListItem>
+        </List>
+      </Box>
       <Outlet />
     </>
   );
 };
+
+/* <ListItemButton role="menuitem" component="a" aria-label="Home"></ListItemButton> */

@@ -18,7 +18,7 @@ export const Cast = ({ data }) => {
       />
       <InfoStyled>
         <p>{name}</p>
-        <p>Character: {character}</p>
+        <p>Character: {character ? character : '-'}</p>
       </InfoStyled>
     </Container>
   ));

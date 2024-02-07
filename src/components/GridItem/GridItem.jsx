@@ -1,13 +1,13 @@
 import { Link, useLocation } from 'react-router-dom';
-import { StyledGridItem } from './GridItem.styled';
+import { ListItem } from '@mui/joy';
 
 export const GridItem = ({ title, id }) => {
   const location = useLocation();
   return (
-    <StyledGridItem>
+    <ListItem>
       <Link to={`/movies/${id}`} state={location}>
         {title}
       </Link>
-    </StyledGridItem>
+    </ListItem>
   );
 };

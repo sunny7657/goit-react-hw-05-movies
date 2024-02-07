@@ -1,6 +1,6 @@
+import { Button } from '@mui/joy';
 import { getMovieInfo } from 'api/moviesAPI';
 import { AdditionalInfo } from 'components/AdditionalInfo/AdditionalInfo';
-import { BtnStyled } from 'components/Button/Button.styled';
 import { AppLoader } from 'components/Loader/Loader';
 import { MovieDetails } from 'components/MovieDetails/MovieDetails';
 import { useEffect, useState } from 'react';
@@ -41,7 +41,9 @@ export const MovieDetailsPage = () => {
       <>
         {loader && <AppLoader />}
         {error && <p>{error}</p>}
-        <BtnStyled onClick={handleBack}>Go back</BtnStyled>
+        <Button onClick={handleBack} variant={'soft'} size="sm">
+          Go back
+        </Button>
         {/* <Link to={location.state ?? '/'}>Go back</Link> */}
         <MovieDetails data={dataMovie} />
         <AdditionalInfo />
