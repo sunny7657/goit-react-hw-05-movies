@@ -25,7 +25,7 @@ const FormSearchMovies = () => {
       <Input
         name="search"
         type="text"
-        placeholder="Search film"
+        placeholder="Search movie"
         value={searchQuery}
         onChange={handleInputChange}
         endDecorator={

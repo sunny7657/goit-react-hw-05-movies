@@ -16,7 +16,7 @@ const Header = () => {
         <List role="menubar" orientation="horizontal">
           <ListItem role="none">
             <NavLink to="/">
-              <ListItemButton>
+              <ListItemButton style={{ color: '#405164' }}>
                 <Home />
                 Home
               </ListItemButton>
@@ -24,7 +24,7 @@ const Header = () => {
           </ListItem>
           <ListDivider />
           <ListItem role="none">
-            <ListItemButton>
+            <ListItemButton style={{ color: '#405164' }}>
               <Videocam />
               <NavLink to="/movies">Movies</NavLink>
             </ListItemButton>
