@@ -1,22 +1,36 @@
 import { List, ListItem } from '@mui/joy';
-import { Link } from 'react-router-dom';
+import { ContainerApp, Section } from 'components/App/App.styled';
+import { Link, useLocation } from 'react-router-dom';
 
-export const AdditionalInfo = () => {
+const AdditionalInfo = () => {
+  const location = useLocation();
+
   return (
-    <>
-      <h4>Additional information</h4>
-      <List>
-        <ListItem>
-          <Link to="cast" className="additional-item">
-            Cast
-          </Link>
-        </ListItem>
-        <ListItem>
-          <Link to="reviews" className="additional-item">
-            Reviews
-          </Link>
-        </ListItem>
-      </List>
-    </>
+    <Section>
+      <ContainerApp>
+        <h4>Additional information</h4>
+        <List>
+          <ListItem>
+            <Link
+              to="cast"
+              state={{ from: location.state?.from ?? '/' }}
+              style={{ color: '#405164' }}
+            >
+              Cast
+            </Link>
+          </ListItem>
+          <ListItem>
+            <Link
+              to="reviews"
+              state={{ from: location.state?.from ?? '/' }}
+              style={{ color: '#405164' }}
+            >
+              Reviews
+            </Link>
+          </ListItem>
+        </List>
+      </ContainerApp>
+    </Section>
   );
 };
+export default AdditionalInfo;

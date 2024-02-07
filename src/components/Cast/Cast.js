@@ -1,8 +1,8 @@
-import { Container } from 'components/Container/Container.styled';
-import { InfoStyled } from 'components/MovieDetails/MovieInfo.styled';
+import Container from 'components/Container/Container.styled';
+import InfoStyled from 'components/MovieDetails/MovieInfo.styled';
 import { nanoid } from 'nanoid';
 
-export const Cast = ({ data }) => {
+const Cast = ({ data }) => {
   const defaultImg = 'https://i.stack.imgur.com/34AD2.jpg';
 
   return data.map(({ profile_path, name, character }) => (
@@ -23,3 +23,4 @@ export const Cast = ({ data }) => {
     </Container>
   ));
 };
+export default Cast;

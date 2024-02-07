@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import { Grid } from '../components/Grid/Grid';
-import { AppLoader } from '../components/Loader/Loader';
-import { ContainerApp, Section } from 'components/App/App.styled';
 import { trendMovies } from 'api/moviesAPI';
+import { ContainerApp, Section } from 'components/App/App.styled';
+import AppLoader from 'components/Loader/Loader';
+import Grid from 'components/Grid/Grid';
 
-export const HomePage = () => {
+const HomePage = () => {
   const [trendCountries, setTrendCountries] = useState([]);
   const [error, setError] = useState(null);
   const [loader, setLoader] = useState(false);
@@ -37,3 +37,4 @@ export const HomePage = () => {
     </>
   );
 };
+export default HomePage;

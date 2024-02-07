@@ -1,7 +1,7 @@
-import { Container } from 'components/Container/Container.styled';
-import { InfoStyled } from './MovieInfo.styled';
+import Container from 'components/Container/Container.styled';
+import InfoStyled from './MovieInfo.styled';
 
-export const MovieDetails = ({ data }) => {
+const MovieDetails = ({ data }) => {
   const { title, poster_path, vote_average, overview, genres, release_date } =
     data;
   const releaseDate = release_date.slice(0, 4);
@@ -33,3 +33,5 @@ export const MovieDetails = ({ data }) => {
     </Container>
   );
 };
+
+export default MovieDetails;

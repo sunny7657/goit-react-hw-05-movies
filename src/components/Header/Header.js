@@ -1,8 +1,15 @@
-import { Box, List, ListItem, ListItemButton, ListDivider } from '@mui/joy';
+import {
+  Box,
+  List,
+  ListItem,
+  ListItemButton,
+  ListDivider,
+  Divider,
+} from '@mui/joy';
 import { NavLink, Outlet } from 'react-router-dom';
 import { Home, Videocam } from '@mui/icons-material';
 
-export const Header = () => {
+const Header = () => {
   return (
     <>
       <Box component="nav" aria-label="My site" sx={{ flexGrow: 1 }}>
@@ -23,10 +30,13 @@ export const Header = () => {
             </ListItemButton>
           </ListItem>
         </List>
+        <Divider />
       </Box>
       <Outlet />
     </>
   );
 };
+
+export default Header;
 
 /* <ListItemButton role="menuitem" component="a" aria-label="Home"></ListItemButton> */

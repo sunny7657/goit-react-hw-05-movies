@@ -1,10 +1,10 @@
 import { getCast } from 'api/moviesAPI';
-import { Cast } from 'components/Cast/Cast';
-import { AppLoader } from 'components/Loader/Loader';
+import Cast from 'components/Cast/Cast';
+import AppLoader from 'components/Loader/Loader';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-export const CastPage = () => {
+const CastPage = () => {
   const [castData, setCastData] = useState(null);
   const [loader, setLoader] = useState(false);
   const [error, setError] = useState(null);
@@ -33,3 +33,5 @@ export const CastPage = () => {
     </>
   );
 };
+
+export default CastPage;

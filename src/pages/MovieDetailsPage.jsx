@@ -1,12 +1,13 @@
-import { Button } from '@mui/joy';
+import { Button, Divider } from '@mui/joy';
 import { getMovieInfo } from 'api/moviesAPI';
-import { AdditionalInfo } from 'components/AdditionalInfo/AdditionalInfo';
-import { AppLoader } from 'components/Loader/Loader';
-import { MovieDetails } from 'components/MovieDetails/MovieDetails';
-import { useEffect, useState } from 'react';
+import AdditionalInfo from 'components/AdditionalInfo/AdditionalInfo';
+import { ContainerApp, Section } from 'components/App/App.styled';
+import AppLoader from 'components/Loader/Loader';
+import MovieDetails from 'components/MovieDetails/MovieDetails';
+import { useEffect, useRef, useState } from 'react';
 import { Outlet, useLocation, useNavigate, useParams } from 'react-router-dom';
 
-export const MovieDetailsPage = () => {
+const MovieDetailsPage = () => {
   const [dataMovie, setDataMovie] = useState(null);
   const [loader, setLoader] = useState(false);
   const [error, setError] = useState(null);
@@ -14,6 +15,7 @@ export const MovieDetailsPage = () => {
   const { movieId } = useParams();
 
   const location = useLocation();
+  const valueRef = useRef(location);
 
   const navigate = useNavigate();
 
@@ -33,22 +35,26 @@ export const MovieDetailsPage = () => {
   }, [movieId]);
 
   const handleBack = () => {
-    navigate(location.state ?? '/');
+    navigate(valueRef.current.state ?? '/');
   };
 
   return (
     dataMovie && (
-      <>
-        {loader && <AppLoader />}
-        {error && <p>{error}</p>}
-        <Button onClick={handleBack} variant={'soft'} size="sm">
-          Go back
-        </Button>
-        {/* <Link to={location.state ?? '/'}>Go back</Link> */}
-        <MovieDetails data={dataMovie} />
-        <AdditionalInfo />
-        <Outlet />
-      </>
+      <Section>
+        <ContainerApp>
+          {loader && <AppLoader />}
+          {error && <p>{error}</p>}
+          <Button onClick={handleBack} variant={'soft'} size="sm">
+            Go back
+          </Button>
+          <MovieDetails data={dataMovie} />
+          <AdditionalInfo />
+          <Divider />
+          <Outlet />
+        </ContainerApp>
+      </Section>
     )
   );
 };
+
+export default MovieDetailsPage;

@@ -1,10 +1,10 @@
-import { Reviews } from 'components/Reviews/Reviews';
 import { getReviews } from 'api/moviesAPI';
+import AppLoader from 'components/Loader/Loader';
+import Reviews from 'components/Reviews/Reviews';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { AppLoader } from 'components/Loader/Loader';
 
-export const ReviewsPage = () => {
+const ReviewsPage = () => {
   const [reviewsData, setReviewsData] = useState([]);
   const [loader, setLoader] = useState(false);
   const [error, setError] = useState(null);
@@ -25,7 +25,6 @@ export const ReviewsPage = () => {
     };
     movieId && getApi();
   }, [movieId]);
-  console.log('reviewsData :>> ', Boolean(reviewsData.length));
 
   return (
     <>
@@ -39,3 +38,4 @@ export const ReviewsPage = () => {
     </>
   );
 };
+export default ReviewsPage;

@@ -1,6 +1,6 @@
 import Loader from 'react-js-loader';
 
-export const AppLoader = () => {
+const AppLoader = () => {
   return (
     <div
       className="Loader"
@@ -20,3 +20,5 @@ export const AppLoader = () => {
     </div>
   );
 };
+
+export default AppLoader;

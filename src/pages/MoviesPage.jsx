@@ -1,11 +1,12 @@
 import { searchMovies } from 'api/moviesAPI';
-import { FormSearchMovies } from 'components/Form/FormSearchMovies';
-import { Grid } from 'components/Grid/Grid';
-import { AppLoader } from 'components/Loader/Loader';
+import { ContainerApp, Section } from 'components/App/App.styled';
+import FormSearchMovies from 'components/Form/FormSearchMovies';
+import Grid from 'components/Grid/Grid';
+import AppLoader from 'components/Loader/Loader';
 import { useCallback, useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
-export const MoviesPage = () => {
+const MoviesPage = () => {
   const [queryData, setQueryData] = useState(null);
   const [loader, setLoader] = useState(false);
   const [error, setError] = useState(null);
@@ -37,12 +38,20 @@ export const MoviesPage = () => {
   }, [getFilms, searchParams]);
 
   return (
-    <>
-      {loader && <AppLoader />}
-      {error && <p>{error}</p>}
-      <FormSearchMovies />
-      {queryData && <Grid data={queryData} />}
-      {isEmpty && <p>No matches found...</p>}
-    </>
+    <Section>
+      <ContainerApp>
+        {loader && <AppLoader />}
+        {error && <p>{error}</p>}
+        <FormSearchMovies />
+        {queryData && <Grid data={queryData} />}
+        {isEmpty && (
+          <p style={{ paddingBottom: '15px', paddingTop: '15px' }}>
+            No matches found...
+          </p>
+        )}
+      </ContainerApp>
+    </Section>
   );
 };
+
+export default MoviesPage;

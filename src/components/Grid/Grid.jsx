@@ -1,10 +1,9 @@
-import { Divider, List } from '@mui/joy';
-import { GridItem } from 'components/GridItem/GridItem';
+import { List } from '@mui/joy';
+import GridItem from 'components/GridItem/GridItem';
 
-export const Grid = ({ data }) => {
+const Grid = ({ data }) => {
   return (
     <>
-      <Divider />
       <List>
         {data.map(({ title, id }) => (
           <GridItem title={title} key={id} id={id} />
@@ -13,3 +12,5 @@ export const Grid = ({ data }) => {
     </>
   );
 };
+
+export default Grid;
