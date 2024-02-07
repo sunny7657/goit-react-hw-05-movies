@@ -9,8 +9,7 @@ export const MoviesPage = () => {
   const [queryData, setQueryData] = useState(null);
   const [loader, setLoader] = useState(false);
   const [error, setError] = useState(null);
-  const [showAlertInfo, setShowAlertInfo] = useState(false);
-  console.log(queryData);
+  const [isEmpty, setIsEmpty] = useState(false);
 
   const [searchParams] = useSearchParams();
 
@@ -18,9 +17,13 @@ export const MoviesPage = () => {
     try {
       setLoader(true);
       const { results } = await searchMovies(query);
-
+      if (!results.length) {
+        setIsEmpty(true);
+        setQueryData(null);
+        return;
+      }
+      setIsEmpty(false);
       setQueryData(results);
-      setShowAlertInfo(true);
     } catch (error) {
       setError(error.message);
     } finally {
@@ -33,7 +36,7 @@ export const MoviesPage = () => {
     query && getFilms(query);
   }, [getFilms, searchParams]);
 
-  console.log(showAlertInfo);
+  console.log('isEmpty :>> ', isEmpty);
 
   return (
     <>
@@ -41,7 +44,7 @@ export const MoviesPage = () => {
       {error && <p>{error}</p>}
       <FormSearchMovies />
       {queryData && <Grid data={queryData} />}
-      {!queryData && showAlertInfo && <p>No matches found...</p>}
+      {isEmpty && <p>No matches found...</p>}
     </>
   );
 };
