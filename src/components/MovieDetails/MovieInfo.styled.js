@@ -6,5 +6,6 @@ const InfoStyled = styled.div`
   display: flex;
   flex-direction: column;
   gap: 15px;
+  max-width: 800px;
 `;
 export default InfoStyled;
