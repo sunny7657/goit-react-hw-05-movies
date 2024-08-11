@@ -12,7 +12,18 @@ import { Home, Videocam } from '@mui/icons-material';
 const Header = () => {
   return (
     <>
-      <Box component="nav" aria-label="My site" sx={{ flexGrow: 1 }}>
+      <Box
+        component="nav"
+        aria-label="My site"
+        sx={{ flexGrow: 1 }}
+        style={{
+          position: 'fixed',
+          zIndex: '100',
+          top: '0',
+          left: '0',
+          width: '100%',
+        }}
+      >
         <List role="menubar" orientation="horizontal">
           <ListItem role="none">
             <NavLink to="/">
