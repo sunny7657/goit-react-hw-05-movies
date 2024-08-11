@@ -24,10 +24,12 @@ const Header = () => {
           </ListItem>
           <ListDivider />
           <ListItem role="none">
-            <ListItemButton style={{ color: '#405164' }}>
-              <Videocam />
-              <NavLink to="/movies">Movies</NavLink>
-            </ListItemButton>
+            <NavLink to="/movies">
+              <ListItemButton style={{ color: '#405164' }}>
+                <Videocam />
+                Movies
+              </ListItemButton>
+            </NavLink>
           </ListItem>
         </List>
         <Divider />
