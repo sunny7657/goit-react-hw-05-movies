@@ -1,6 +1,6 @@
-import { List, ListItem } from '@mui/joy';
+import { List, ListItem, ListItemButton } from '@mui/joy';
 import { ContainerApp, Section } from 'components/App/App.styled';
-import { Link, useLocation } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 
 const AdditionalInfo = () => {
   const location = useLocation();
@@ -11,22 +11,24 @@ const AdditionalInfo = () => {
         <h4>Additional information</h4>
         <List>
           <ListItem>
-            <Link
+            <NavLink
               to="cast"
               state={{ from: location.state?.from ?? '/' }}
               style={{ color: '#405164' }}
             >
-              Cast
-            </Link>
+              <ListItemButton style={{ color: '#405164' }}>Cast</ListItemButton>
+            </NavLink>
           </ListItem>
           <ListItem>
-            <Link
+            <NavLink
               to="reviews"
               state={{ from: location.state?.from ?? '/' }}
               style={{ color: '#405164' }}
             >
-              Reviews
-            </Link>
+              <ListItemButton style={{ color: '#405164' }}>
+                Reviews
+              </ListItemButton>
+            </NavLink>
           </ListItem>
         </List>
       </ContainerApp>

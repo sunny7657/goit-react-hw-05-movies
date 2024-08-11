@@ -2,13 +2,11 @@ import { searchMovies } from 'api/moviesAPI';
 import { ContainerApp, Section } from 'components/App/App.styled';
 import FormSearchMovies from 'components/Form/FormSearchMovies';
 import Grid from 'components/Grid/Grid';
-import AppLoader from 'components/Loader/Loader';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 const MoviesPage = () => {
   const [queryData, setQueryData] = useState(null);
-  const [loader, setLoader] = useState(false);
   const [error, setError] = useState(null);
   const [isEmpty, setIsEmpty] = useState(false);
 
@@ -18,7 +16,6 @@ const MoviesPage = () => {
     const query = searchParams.get('query');
     const getFilms = async query => {
       try {
-        setLoader(true);
         const { results } = await searchMovies(query);
         if (!results.length) {
           setIsEmpty(true);
@@ -29,8 +26,6 @@ const MoviesPage = () => {
         setQueryData(results);
       } catch (error) {
         setError(error.message);
-      } finally {
-        setLoader(false);
       }
     };
     query && getFilms(query);
@@ -39,7 +34,6 @@ const MoviesPage = () => {
   return (
     <Section>
       <ContainerApp>
-        {loader && <AppLoader />}
         {error && <p>{error}</p>}
         <FormSearchMovies />
         {queryData && <Grid data={queryData} />}

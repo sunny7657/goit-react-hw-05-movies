@@ -4,11 +4,15 @@ const AppLoader = () => {
   return (
     <div
       className="Loader"
-      styles={{
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
+      style={{
+        position: 'fixed',
+        zIndex: '1000',
+        width: '100vw',
+        height: '100vh',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'rgba(255, 255, 255, 0.8)',
       }}
     >
       <Loader
