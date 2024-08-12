@@ -1,25 +1,15 @@
 import Container from 'components/Container/Container.styled';
 import InfoStyled from './MovieInfo.styled';
+import Poster from 'components/Poster/Poster';
 
 const MovieDetails = ({ data }) => {
   const { title, poster_path, vote_average, overview, genres, release_date } =
     data;
   const releaseDate = release_date.slice(0, 4);
 
-  const defaultImg =
-    '<https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700>';
-
   return (
     <Container>
-      <img
-        src={
-          poster_path
-            ? `https://image.tmdb.org/t/p/w500/${poster_path}`
-            : defaultImg
-        }
-        width={250}
-        alt="poster"
-      />
+      <Poster poster_path={poster_path} width={250} />
       <InfoStyled>
         <h2>
           {title} ({releaseDate})
