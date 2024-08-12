@@ -4,14 +4,14 @@ import { ContainerApp, Section } from 'components/App/App.styled';
 import Grid from 'components/Grid/Grid';
 
 const HomePage = () => {
-  const [trendCountries, setTrendCountries] = useState([]);
+  const [trendToday, setTrendToday] = useState([]);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const getTrend = async () => {
       try {
         const { results } = await trendMovies();
-        setTrendCountries([...results]);
+        setTrendToday([...results]);
       } catch (error) {
         setError(error.message);
       }
@@ -39,7 +39,7 @@ const HomePage = () => {
             Movies app
           </h1>
           <h2>Trending today</h2>
-          <Grid data={trendCountries} />
+          <Grid data={trendToday} />
         </ContainerApp>
       </Section>
     </>

@@ -8,7 +8,7 @@ const AdditionalInfo = () => {
   return (
     <Section>
       <ContainerApp>
-        <h4>Additional information</h4>
+        <h3>Additional information</h3>
         <List>
           <ListItem>
             <NavLink
@@ -16,7 +16,9 @@ const AdditionalInfo = () => {
               state={{ from: location.state?.from ?? '/' }}
               style={{ color: '#405164' }}
             >
-              <ListItemButton style={{ color: '#405164' }}>Cast</ListItemButton>
+              <ListItemButton style={{ color: '#405164' }}>
+                <h4 style={{ margin: '0' }}>Cast</h4>
+              </ListItemButton>
             </NavLink>
           </ListItem>
           <ListItem>
@@ -26,7 +28,7 @@ const AdditionalInfo = () => {
               style={{ color: '#405164' }}
             >
               <ListItemButton style={{ color: '#405164' }}>
-                Reviews
+                <h4 style={{ margin: '0' }}>Reviews</h4>
               </ListItemButton>
             </NavLink>
           </ListItem>

@@ -25,7 +25,7 @@ const Reviews = ({ data }) => {
       <h4>Author: {author}</h4>
       <p
         style={{
-          width: '350px',
+          maxWidth: '600px',
           overflow: expandedStates[index] ? 'visible' : 'hidden',
           display: '-webkit-box',
           WebkitLineClamp: expandedStates[index] ? 'none' : '2',
