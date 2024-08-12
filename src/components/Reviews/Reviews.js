@@ -22,10 +22,12 @@ const Reviews = ({ data }) => {
         marginBottom: '16px',
       }}
     >
-      <h4>Author: {author}</h4>
+      <h4>
+        <span style={{ fontWeight: 'normal' }}>Author:</span> {author}
+      </h4>
       <p
         style={{
-          maxWidth: '600px',
+          maxWidth: '80%',
           overflow: expandedStates[index] ? 'visible' : 'hidden',
           display: '-webkit-box',
           WebkitLineClamp: expandedStates[index] ? 'none' : '2',
@@ -44,8 +46,8 @@ const Reviews = ({ data }) => {
         size="sm"
         style={{
           position: 'absolute',
-          bottom: '20px',
           right: '20px',
+          bottom: '20px',
         }}
       >
         {expandedStates[index] ? 'Hide' : 'Read full review'}
