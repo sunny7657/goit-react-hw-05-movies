@@ -15,7 +15,7 @@ const GridItem = ({ title, poster_path, release_date, vote_average, id }) => {
         state={location}
         style={{ color: '#405164', width: '100%' }}
       >
-        <Container>
+        <Container style={{ height: '225px', alignItems: 'center' }}>
           <Poster poster_path={poster_path} width={150} />
           <InfoStyled>
             <h2>
